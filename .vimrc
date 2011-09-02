@@ -88,7 +88,7 @@ map <C-h> <C-w><Left>
 " }
 
 " Vim UI {
-  color solarized                " load a colorscheme
+  colorscheme solarized                " load a colorscheme
   set tabpagemax=15         " only show 15 tabs
   set showmode                     " display the current mode
 
