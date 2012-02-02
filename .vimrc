@@ -43,9 +43,9 @@ call pathogen#helptags()
   set noswapfile     "no swap files
   set ofu=syntaxcomplete#Complete
   set background=dark         " Assume a dark background
-  if !has('win32') && !has('win64')
-     set term=$TERM       " Make arrow and other keys work
-  endif
+"  if !has('win32') && !has('win64')
+"     set term=$TERM       " Make arrow and other keys work
+"  endif
   filetype plugin indent on    " Automatically detect file types.
   syntax on           " syntax highlighting
   set mouse=a          " automatically enable mouse usage
@@ -141,6 +141,8 @@ map <C-h> <C-w><Left>
         au! BufRead,BufNewFile *.pp     setfiletype puppet
         au! BufRead,BufNewFile *httpd*.conf     setfiletype apache
         au! BufRead,BufNewFile *inc     setfiletype php
+        au! BufRead,BufNewFile Gemfile     setfiletype ruby
+        au! BufRead,BufNewFile *.thor     setfiletype ruby
     augroup END
 
     " Uncomment these lines to do syntax checking when you save
@@ -154,8 +156,8 @@ map <C-h> <C-w><Left>
     autocmd BufWritePost *.sh !bash -n <afile>
     autocmd BufWritePost *.pl !perl -c <afile>
     autocmd BufWritePost *.perl !perl -c <afile>
-    autocmd BufWritePost *.xml !xmllint --noout <afile>
-    autocmd BufWritePost *.xsl !xmllint --noout <afile>
+    autocmd BufWritePost *.xml !xmllint --format --recover --noout <afile>
+    autocmd BufWritePost *.xsl !xmllint --format --recover --noout <afile>
     " get csstidy from http://csstidy.sourceforge.net/
     autocmd BufWritePost *.css !test -f ~/csstidy/csslint.php && php ~/csstidy/csslint.php <afile>
     " get jslint from http://javascriptlint.com/
@@ -171,14 +173,14 @@ map <C-h> <C-w><Left>
 
 " This function determines, wether we are on the start of the line text (then tab indents) or
 " if we want to try autocompletion
-function InsertTabWrapper()
-    let col = col('.') - 1
-   if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
+"function InsertTabWrapper()
+"    let col = col('.') - 1
+"   if !col || getline('.')[col - 1] !~ '\k'
+"        return "\<tab>"
+"    else
+"        return "\<c-p>"
+"    endif
+"endfunction
 
 " Remap the tab key to select action with InsertTabWrapper
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
