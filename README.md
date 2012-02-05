@@ -13,4 +13,6 @@ My vim config and plugins
         git submodule init
         git submodule update
 
+You'll then need to build command-t, see command-t installation instructions for details.
+
 
