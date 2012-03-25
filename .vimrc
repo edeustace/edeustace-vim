@@ -168,6 +168,13 @@ map <C-h> <C-w><Left>
     autocmd BufWritePost *.py !python -c "compile(open('<afile>').read(), '<afile>', 'exec')"
     augroup en
 " }
+"
+" {{{ Hide Toolbar in macvim
+  if has("gui_running")
+      set guioptions=egmrt
+  endif
+" }}}
+"
 
 " {{{ Autocompletion using the TAB key
 
