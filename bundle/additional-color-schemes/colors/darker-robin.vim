@@ -16,7 +16,7 @@ endif
 """ Colors
 
 " GUI colors
-hi Cursor      guifg=white    guibg=#333333    gui=none
+hi Cursor      guifg=white    guibg=#ff0055    gui=none
 hi CursorIM      guifg=NONE    guibg=black    gui=none
 hi CursorLine       guifg=NONE      guibg=black     gui=none
 " hi Directory    guifg=#ff0000  guibg=#00ffff  gui=none

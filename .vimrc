@@ -26,8 +26,8 @@ call pathogen#helptags()
 	set autoindent                 	" indent at the same level of the previous line
 	set shiftwidth=2               	" use indents of 4 spaces
 	set expandtab 	  	     		" tabs are spaces, not tabs
-	set tabstop=4 					" an indentation every four columns
-	set softtabstop=4 				" let backspace delete indent
+	set tabstop=2 					" an indentation every four columns
+	set softtabstop=2 				" let backspace delete indent
 	"set matchpairs+=<:>            	" match, to be used with % 
 	set pastetoggle=<F12>          	" pastetoggle (sane indentation on pastes)
 	"set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
@@ -88,7 +88,7 @@ map <C-h> <C-w><Left>
 " }
 
 " Vim UI {
-  colorscheme solarized                " load a colorscheme
+  colorscheme darker-robin                " load a colorscheme
   set tabpagemax=15         " only show 15 tabs
   set showmode                     " display the current mode
 
@@ -176,6 +176,19 @@ map <C-h> <C-w><Left>
 " }}}
 "
 
+" {{{ Single character insertion
+" When you only want to insert a single character you don't want to use 3
+" keystrokes. This command allows you to type s in command mode - insert the
+" character and then jumps out to command mode.
+" from: http://vim.wikia.com/wiki/Insert_a_single_character
+function! RepeatChar(char, count)
+   return repeat(a:char, a:count)
+ endfunction
+ nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
+ nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
+" }}}
+
+
 " {{{ Autocompletion using the TAB key
 
 " This function determines, wether we are on the start of the line text (then tab indents) or
@@ -190,7 +203,7 @@ map <C-h> <C-w><Left>
 "endfunction
 
 " Remap the tab key to select action with InsertTabWrapper
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 " }}} Autocompletion using the TAB key
 
