@@ -207,4 +207,8 @@ function! RepeatChar(char, count)
 
 " }}} Autocompletion using the TAB key
 
+" CtrlP settings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/target/*,*.class   " Linux/MacOSX
