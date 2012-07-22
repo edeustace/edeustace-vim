@@ -88,7 +88,9 @@ map <C-h> <C-w><Left>
 " }
 
 " Vim UI {
-  colorscheme darker-robin                " load a colorscheme
+
+  set gfn=Menlo\ Regular:h12
+  colorscheme molokai
   set tabpagemax=15         " only show 15 tabs
   set showmode                     " display the current mode
 
