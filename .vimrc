@@ -90,7 +90,7 @@ map <C-h> <C-w><Left>
 " Vim UI {
 
   set gfn=Menlo\ Regular:h12
-  colorscheme molokai
+  colorscheme clouds-midnight "molokai
   set tabpagemax=15         " only show 15 tabs
   set showmode                     " display the current mode
 
